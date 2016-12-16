@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">GithubMetrics</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="tagline">An Easy non-Tedious way to evaluate developer\'s github profile</string>
+    <string name="login">Login With Github</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="history">History</string>
+    <string name="feedback">Feedback</string>
+    <string name="btnFeedback">Send Feedback</string>
+    <string name="feedbackLabelText">
+        <![CDATA[
+<pre>Hello User , <br />I hope you found this app usefull,<br/> I invite you to share you precious feedback,queries, new feature request, etc.<br/>Thanks.<br/>Hardik Goswami,<br/>Developer.</pre>
+        ]]>
+    </string>
+    <string name="candidate_history">History</string>
+    <string name="username_hint">Enter Github Username</string>
+    <string name="hint_location">Location</string>
+    <string name="hint_bio">This is bio textview hint , users bio will be displayed here , how awesome developer is ?</string>
+    <string name="hint_email">dummyemail@email.moc</string>
+    <string name="rating_label">Ratings are : -</string>
+    <string name="hint_contributionThisYear">Contributions in this year : -</string>
+    <string name="hint_numOfFollowers">Follwers :-</string>
+    <string name="labelPopularRepos">Popular Repositories of this user.</string>
+    <string name="refresh">Refresh</string>
+    <string name="followMe">you can email me Newsletter</string>
+    <string name="btnSurveyOptIn">Opt-In for beta features</string>
+    <string name="logout">Logout</string>
+    <string name="thankyou">Hello User,I hope you found this app usefull,I invite you to share you precious feedback,queries, new feature request, etc.</string>
+    <string name="candidate_history_list">List of candidates searched</string>
+    <string name="logoOfApp">Logo for GithubMetrics</string>
+    <string name="userImage">Profile Image of searched user</string>
+    <string name="candidate_bio">Bio of user searched</string>
+    <string name="hint_email_content">email of user searched</string>
+    <string name="rating_label_content">Ratings for user searched.</string>
+    <string name="email_with_label">Email :- %s</string>
+    <string name="location_with_label_text">Location :- %s</string>
+    <string name="followers_with_label_text">Number of followers :- %d</string>
+</resources>

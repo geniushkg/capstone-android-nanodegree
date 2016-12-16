@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hardikgoswami.githubmetrics.feedback.FeedbackFragment">
+
+    <TextView
+        android:id="@+id/tvFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/heightFeedbackText"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/twentydp"
+        android:layout_marginStart="@dimen/twentydp"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="@dimen/feedbackLabelFontSize" />
+
+    <Button
+        android:id="@+id/btnSendFeedBack"
+        android:layout_width="@dimen/loginbtn_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorAccent"
+        android:contentDescription="@string/btnFeedback"
+        android:focusable="true"
+        android:text="@string/btnFeedback"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnSurveyOptIn"
+        android:layout_width="@dimen/loginbtn_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:background="@color/colorAccent"
+        android:focusable="true"
+        android:text="@string/btnSurveyOptIn"
+        android:textColor="@color/white"
+        android:contentDescription="@string/btnSurveyOptIn"/>
+
+
+</LinearLayout>

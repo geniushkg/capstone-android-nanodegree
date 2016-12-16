@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'myalias'
+            keyPassword 'mypassword'
+            storeFile file('mykeystore.jks')
+            storePassword 'mypassword'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId "com.hardikgoswami.githubmetrics"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        all {
+            buildConfigField 'String', 'GITHUB_SECRET', GITHUB_SECRET
+            buildConfigField 'String', 'GITHUB_CLIENT', GITHUB_CLIENT
+            buildConfigField 'String', 'DOORBELL_KEY', doorbell
+            buildConfigField 'int', 'DOORBELL_ID', doorbell_id
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+
+}
+
+
+
+
+dependencies {
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.github.geniushkg:oauthLibGithub:1.0.2', {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.google.firebase:firebase-auth:10.0.1'
+    compile 'com.facebook.stetho:stetho:1.4.1'
+    compile 'io.doorbell:android-sdk:0.2.6@aar'
+    compile 'com.android.support:cardview-v7:23.4.0'
+    compile 'com.github.javierugarte:githubcontributionsview:1.0.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.github.provigen:ProviGen-lib:2.0.1'
+    compile 'com.google.firebase:firebase-core:10.0.1'
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/org.eclipse.egit.github.core-2.1.4.jar')
+}
+apply plugin: 'com.google.gms.google-services'
