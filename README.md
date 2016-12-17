@@ -6,3 +6,4 @@ Features :
 2. Displays developers contribution
 3. Widget for quick view on homescreen
 4. Uses Firebase for Analytics and authentication
+5. Implements oauthLibGithub for Oauthtoken
