@@ -105,7 +105,7 @@ public class SearchFragment extends Fragment implements LoaderManager.LoaderCall
                     searchedUser = etGithubUsername.getText().toString();
                 }
                 if (searchedUser != null && isOnline) {
-                    Toast.makeText(getActivity(), "Please wait searching for : " + searchedUser, Toast.LENGTH_LONG).show();
+                    displayMessage(getString(R.string.searching,searchedUser));
                     gitView.loadUserName(searchedUser);
                     gitView.displayMonth(true);
                     gitView.setTextColor(R.color.colorAccent);
@@ -118,9 +118,9 @@ public class SearchFragment extends Fragment implements LoaderManager.LoaderCall
 
                 }else {
                     if (isOnline){
-                        Toast.makeText(getActivity(),"Username cannot be empty",Toast.LENGTH_SHORT).show();
+                        displayMessage(getString(R.string.invalid_username));
                     }else {
-                        Toast.makeText(getActivity(),"Please check internet connection",Toast.LENGTH_SHORT).show();
+                        displayMessage(getString(R.string.check_internet));
                     }
                 }
 
@@ -137,7 +137,7 @@ public class SearchFragment extends Fragment implements LoaderManager.LoaderCall
             //do nothing
             Log.d(TAG, "onCreateLoader: " + username);
         } else {
-            Toast.makeText(getActivity(), "Empty username field", Toast.LENGTH_SHORT).show();
+            displayMessage(getString(R.string.invalid_username));
         }
         android.support.v4.content.Loader<UserData> loader = new GithubDataLoader(getActivity(), username);
         return loader;
@@ -147,7 +147,7 @@ public class SearchFragment extends Fragment implements LoaderManager.LoaderCall
     public void onLoadFinished(android.support.v4.content.Loader<UserData> loader, UserData data) {
         if (data.isValid()) {
             Log.d(TAG, "onLoadFinished: loader finished");
-            Toast.makeText(getActivity(), "Data Loaded", Toast.LENGTH_SHORT);
+            displayMessage(getString(R.string.data_loaded));
             tvBio.setText(data.getBio());
             tvFollwers.setText(getString(R.string.followers_with_label_text,data.getFollowers()));
             tvLocation.setText(getString(R.string.location_with_label_text,data.getLocation()));
@@ -173,7 +173,7 @@ public class SearchFragment extends Fragment implements LoaderManager.LoaderCall
         } else {
             Log.d(TAG, "onLoadFinished: invalid username");
             linearCardView.setVisibility(View.INVISIBLE);
-            Toast.makeText(getActivity(),"Invalid Username",Toast.LENGTH_SHORT).show();
+            displayMessage(getString(R.string.invalid_username));
         }
     }
 
@@ -182,4 +182,7 @@ public class SearchFragment extends Fragment implements LoaderManager.LoaderCall
         Log.d(TAG, "onLoaderReset: loader resent");
     }
 
+    public void displayMessage(String message){
+        Toast.makeText(getActivity(),"Message - "+message,Toast.LENGTH_SHORT).show();
+    }
 }

@@ -97,14 +97,14 @@ public class FeedbackFragment extends Fragment {
                         @Override
                         public void handle(String message) {
                             // Show the message in a different way, or use your own message!
-                            Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                            displayMessage(message);
                         }
                     });
 
                     doorbell.show();
 
                 } else {
-                    Toast.makeText(getActivity(), "Please check internet connectivity", Toast.LENGTH_SHORT).show();
+                    displayMessage(getString(R.string.check_internet));
                 }
             }
         });
@@ -120,17 +120,16 @@ public class FeedbackFragment extends Fragment {
                         OptInTask myAsyncTask = new OptInTask();
                         myAsyncTask.execute(params);
                     } else {
-                        Toast.makeText(getActivity(), "App will close automatically ," +
-                                " session expired, please login again", Toast.LENGTH_SHORT).show();
+                        displayMessage(getString(R.string.session_expired));
                         FirebaseAuth.getInstance().signOut();
                         SharedPreferences.Editor edit = sharedPreferences.edit();
                         edit.clear();
                         edit.commit();
                         getActivity().finish();
                     }
-                    Toast.makeText(getActivity(), "Please Wait.", Toast.LENGTH_LONG).show();
+                    displayMessage(getString(R.string.wait));
                 } else {
-                    Toast.makeText(getActivity(), "Please check internet connectivity", Toast.LENGTH_SHORT).show();
+                    displayMessage(getString(R.string.check_internet));
                 }
             }
         });
@@ -148,9 +147,7 @@ public class FeedbackFragment extends Fragment {
             //OAuth2 token authentication
             GitHubClient client = new GitHubClient();
             client.setOAuth2Token(oauthToken);
-
             StargazerService service = new StargazerService(client);
-
             try {
                 service.star("geniushkg/capstone-project");
             } catch (IOException e) {
@@ -165,8 +162,12 @@ public class FeedbackFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Toast.makeText(getActivity(), "Thank you", Toast.LENGTH_SHORT).show();
+            displayMessage(getString(R.string.thank_you));
         }
+    }
+
+    public void displayMessage(String message){
+        Toast.makeText(getActivity(),"Message - "+message,Toast.LENGTH_SHORT).show();
     }
 
 }

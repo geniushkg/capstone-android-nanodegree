@@ -106,9 +106,8 @@ public class HomeActivity extends AppCompatActivity
                             // display error for siginfails , for succesfull signin handle login in listener
                             if (!task.isSuccessful()) {
                                 Log.d(TAG, "signInWithCredential", task.getException());
-                                Toast.makeText(HomeActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                                Toast.makeText(HomeActivity.this, "Please check internet connectivity", Toast.LENGTH_SHORT).show();
+                                displayMessage(getString(R.string.authentication_failed));
+                                displayMessage(getString(R.string.check_internet));
                             }
                         }
                     });
@@ -260,5 +259,9 @@ public class HomeActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         }
         super.onBackPressed();
+    }
+
+    public void displayMessage(String message) {
+        Toast.makeText(this, "Message - " + message, Toast.LENGTH_SHORT).show();
     }
 }

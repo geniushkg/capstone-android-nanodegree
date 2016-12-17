@@ -47,4 +47,12 @@
     <string name="email_with_label">Email :- %s</string>
     <string name="location_with_label_text">Location :- %s</string>
     <string name="followers_with_label_text">Number of followers :- %d</string>
+    <string name="thank_you">Thank you</string>
+    <string name="check_internet">Please check internet connectivity</string>
+    <string name="wait">Please wait.</string>
+    <string name="session_expired">App will close session expired</string>
+    <string name="invalid_username">Invalid Username</string>
+    <string name="data_loaded">Data Loaded</string>
+    <string name="searching">Please wait while searching for : %s</string>
+    <string name="authentication_failed">Authentication failed</string>
 </resources>
